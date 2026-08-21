@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utkarsh Medical Hall | 100% Genuine Medicines & Healthcare</title>
+  <meta name="description" content="Utkarsh Medical Hall - Your trusted neighborhood pharmacy offering genuine medicines, healthcare devices, baby care, ayurvedic wellness, and express prescription delivery.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <span><i class="fa-solid fa-clock"></i> Open Daily: 7:00 AM - 11:00 PM</span>
+        <span><i class="fa-solid fa-truck-medical"></i> Free Delivery on orders above ₹500</span>
+      </div>
+      <div class="top-bar-right">
+        <a href="tel:+919876543210"><i class="fa-solid fa-phone"></i> Helpline: +91 98765 43210</a>
+        <span class="top-badge"><i class="fa-solid fa-shield-halved"></i> CDSCO Certified</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar">
+        <!-- Logo -->
+        <a href="index.html" class="brand-logo">
+          <img src="images/logo.png" alt="Utkarsh Medical Hall Logo">
+          <div class="brand-text">
+            <span class="brand-name">Utkarsh Medical Hall</span>
+            <span class="brand-tagline">Pharmacy & Healthcare</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="products.html" class="nav-link">Medicines & Store</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="admin-login.html" class="nav-link"><i class="fa-solid fa-lock" style="font-size:0.8rem;"></i> Admin</a></li>
+        </ul>
+
+        <!-- Right Action Items -->
+        <div class="nav-actions">
+          <div class="header-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="global-search-input" placeholder="Search medicines, salt...">
+          </div>
+
+          <button class="btn-upload-rx" onclick="PrescriptionModal.open()">
+            <i class="fa-solid fa-file-medical"></i>
+            <span>Upload Rx</span>
+          </button>
+
+          <button class="cart-toggle-btn" onclick="UtkarshCart.openDrawer()" aria-label="View Shopping Cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+            <span class="cart-badge cart-badge-count" style="display:none;">0</span>
+          </button>
+
+          <button class="hamburger-btn" id="hamburger-toggle" aria-label="Toggle Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-nav-header">
+      <div class="brand-logo">
+        <img src="images/logo.png" alt="Logo">
+        <span class="brand-name" style="font-size:1.15rem;">Utkarsh Medical</span>
+      </div>
+      <button id="mobile-nav-close" style="font-size:1.4rem;color:#64748b;"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+      <li><a href="products.html"><i class="fa-solid fa-pills"></i> Medicines & Store</a></li>
+      <li><a href="about.html"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+      <li><a href="contact.html"><i class="fa-solid fa-address-book"></i> Contact Us</a></li>
+      <li><a href="admin-login.html"><i class="fa-solid fa-lock"></i> Admin Portal</a></li>
+    </ul>
+    <div style="margin-top:auto;display:flex;flex-direction:column;gap:0.75rem;">
+      <button class="btn btn-primary" onclick="PrescriptionModal.open(); document.getElementById('mobile-nav-drawer').classList.remove('active');">
+        <i class="fa-solid fa-file-medical"></i> Upload Prescription
+      </button>
+      <a href="tel:+919876543210" class="btn btn-whatsapp" style="justify-content:center;">
+        <i class="fa-solid fa-phone"></i> Call Pharmacist
+      </a>
+    </div>
+  </aside>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-tag">
+            <i class="fa-solid fa-heart-pulse"></i> Trusted Healthcare Since 2010
+          </div>
+          <h1 class="hero-title">
+            Your Trusted Partner For <span>Genuine Medicines</span> & Wellness.
+          </h1>
+          <p class="hero-description">
+            Get 100% authentic prescription medicines, healthcare devices, baby essentials, and ayurvedic remedies delivered right to your doorstep with certified pharmacist support.
+          </p>
+
+          <div class="hero-search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="hero-quick-search" placeholder="Search by medicine name, brand, or generic salt..." onkeypress="if(event.key==='Enter') window.location.href='products.html?search=' + encodeURIComponent(this.value)">
+            <button class="btn btn-primary btn-sm" onclick="const v = document.getElementById('hero-quick-search').value; window.location.href='products.html?search=' + encodeURIComponent(v);">
+              Search
+            </button>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary btn-lg" onclick="PrescriptionModal.open()">
+              <i class="fa-solid fa-file-arrow-up"></i> Upload Prescription
+            </button>
+            <a href="products.html" class="btn btn-outline-white btn-lg">
+              <i class="fa-solid fa-basket-shopping"></i> Browse Store
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h3>10,000+</h3>
+              <p>Happy Patients</p>
+            </div>
+            <div class="stat-item">
+              <h3>5,000+</h3>
+              <p>Genuine Medicines</p>
+            </div>
+            <div class="stat-item">
+              <h3>15+</h3>
+              <p>Years of Trust</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card-main">
+            <img src="https://images.unsplash.com/photo-1586015555751-63c2c1c6999a?w=800&auto=format&fit=crop&q=80" alt="Pharmacy Counter" style="border-radius:12px;width:100%;height:340px;object-fit:cover;">
+            
+            <div class="hero-badge-float top-right">
+              <div class="hero-badge-icon icon-green">
+                <i class="fa-solid fa-shield-check"></i>
+              </div>
+              <div>
+                <strong style="display:block;font-size:0.95rem;">100% Genuine</strong>
+                <span style="font-size:0.78rem;color:#64748b;">Direct from Certified Pharma</span>
+              </div>
+            </div>
+
+            <div class="hero-badge-float bottom-left">
+              <div class="hero-badge-icon icon-teal">
+                <i class="fa-solid fa-temperature-arrow-down"></i>
+              </div>
+              <div>
+                <strong style="display:block;font-size:0.95rem;">Cold-Chain Storage</strong>
+                <span style="font-size:0.78rem;color:#64748b;">Insulin & Vaccine Care</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features & Trust Strip -->
+  <section class="features-section">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-certificate"></i></div>
+          <div class="feature-text">
+            <h4>100% Authentic</h4>
+            <p>Direct supply from licensed pharma distributors.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-user-doctor"></i></div>
+          <div class="feature-text">
+            <h4>Certified Pharmacists</h4>
+            <p>Free dosage advice & medication counseling.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <div class="feature-text">
+            <h4>Express Delivery</h4>
+            <p>Fast doorstep delivery with tamper-proof packaging.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <div class="feature-text">
+            <h4>Order on WhatsApp</h4>
+            <p>Send Rx photo & receive instant confirmation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Explorer -->
+  <section class="categories-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Explore Health Categories</span>
+        <h2 class="section-title">Comprehensive Healthcare Solutions</h2>
+        <p class="section-subtitle">Find everything from daily health essentials to specialized prescription medications.</p>
+      </div>
+
+      <div class="category-grid">
+        <a href="products.html?category=otc" class="category-card">
+          <div class="category-icon cat-otc"><i class="fa-solid fa-tablets"></i></div>
+          <span class="category-title">OTC Medicines</span>
+          <span class="category-count">Fever, Pain & Cold</span>
+        </a>
+        <a href="products.html?category=prescription" class="category-card">
+          <div class="category-icon cat-rx"><i class="fa-solid fa-prescription-bottle-medical"></i></div>
+          <span class="category-title">Prescription Rx</span>
+          <span class="category-count">Cardio, Diabetes & More</span>
+        </a>
+        <a href="products.html?category=ayurveda" class="category-card">
+          <div class="category-icon cat-ayurveda"><i class="fa-solid fa-leaf"></i></div>
+          <span class="category-title">Ayurvedic</span>
+          <span class="category-count">Immunity & Herbal</span>
+        </a>
+        <a href="products.html?category=vitamins" class="category-card">
+          <div class="category-icon cat-vitamins"><i class="fa-solid fa-capsules"></i></div>
+          <span class="category-title">Supplements</span>
+          <span class="category-count">Vitamins & Minerals</span>
+        </a>
+        <a href="products.html?category=devices" class="category-card">
+          <div class="category-icon cat-devices"><i class="fa-solid fa-heart-pulse"></i></div>
+          <span class="category-title">Health Devices</span>
+          <span class="category-count">BP Monitors & Gluco</span>
+        </a>
+        <a href="products.html?category=baby" class="category-card">
+          <div class="category-icon cat-baby"><i class="fa-solid fa-baby"></i></div>
+          <span class="category-title">Baby & Mother</span>
+          <span class="category-count">Care & Nutrition</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Popular & Essentials</span>
+        <h2 class="section-title">Top Selling Healthcare Products</h2>
+        <p class="section-subtitle">Highest quality medicines verified by our licensed medical team.</p>
+      </div>
+
+      <div class="products-grid" id="featured-products-grid">
+        <!-- Rendered dynamically by ProductEngine / JavaScript -->
+      </div>
+
+      <div style="text-align:center;margin-top:3rem;">
+        <a href="products.html" class="btn btn-primary btn-lg">
+          <i class="fa-solid fa-layer-group"></i> View All Medicines & Health Products
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prescription CTA Strip -->
+  <section class="rx-banner-section">
+    <div class="container">
+      <div class="rx-banner-grid">
+        <div class="rx-banner-content">
+          <h2>Have a Doctor's Prescription?</h2>
+          <p>Don't spend time searching for complex medicine names. Simply snap a photo of your prescription and upload it here. Our pharmacists will verify and prepare your order immediately.</p>
+          
+          <div class="rx-steps">
+            <div class="rx-step">
+              <span class="rx-step-num">1</span>
+              <span>Upload Prescription</span>
+            </div>
+            <div class="rx-step">
+              <span class="rx-step-num">2</span>
+              <span>Pharmacist Call Verification</span>
+            </div>
+            <div class="rx-step">
+              <span class="rx-step-num">3</span>
+              <span>Doorstep Delivery</span>
+            </div>
+          </div>
+
+          <button class="btn btn-secondary btn-lg" onclick="PrescriptionModal.open()">
+            <i class="fa-solid fa-camera"></i> Upload Doctor Prescription Now
+          </button>
+        </div>
+
+        <div style="text-align:center;">
+          <div style="background:rgba(255,255,255,0.1);padding:2rem;border-radius:16px;border:1px solid rgba(255,255,255,0.2);">
+            <i class="fa-solid fa-file-shield" style="font-size:3.5rem;color:#5eead4;margin-bottom:1rem;"></i>
+            <h3 style="color:#ffffff;font-size:1.3rem;margin-bottom:0.5rem;">Prescription Safety Standard</h3>
+            <p style="color:#ccfbf1;font-size:0.88rem;">We strictly adhere to CDSCO & Pharmacy Act safety protocols. Schedule H & X drugs are dispensed solely upon valid doctor verification.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="trust-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Commitment</span>
+        <h2 class="section-title">Why Patients Choose Utkarsh Medical Hall</h2>
+        <p class="section-subtitle">Dedicated to providing reliable, affordable, and compassionate healthcare services.</p>
+      </div>
+
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon-box"><i class="fa-solid fa-temperature-low"></i></div>
+          <h3>Temperature-Controlled Storage</h3>
+          <p>We maintain precise cold storage for insulins, vaccines, eye drops, and delicate biologicals to preserve 100% medical efficacy.</p>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon-box"><i class="fa-solid fa-receipt"></i></div>
+          <h3>Transparent GST Invoicing</h3>
+          <p>Every single purchase comes with a computerized tax invoice clearly detailing batch numbers, expiry dates, and genuine MRP discounts.</p>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-icon-box"><i class="fa-solid fa-clock-rotate-left"></i></div>
+          <h3>Emergency 24/7 Availability</h3>
+          <p>Immediate medicine emergency support via hotline and WhatsApp for critical patient requirements during odd hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Patient Stories</span>
+        <h2 class="section-title">Trusted by Thousands of Families</h2>
+        <p class="section-subtitle">Read what our long-standing customers have to say about our pharmacy services.</p>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-quote">"Utkarsh Medical Hall has been our family pharmacy for 8 years. Even rare cardiac medicines that are out of stock everywhere else are always arranged promptly by their pharmacist."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AK</div>
+            <div class="author-info">
+              <h4>Anand K. Mishra</h4>
+              <p>Civil Lines Resident</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-quote">"The WhatsApp prescription ordering feature is so convenient! I just sent my mother's diabetes prescription and had the medicines delivered within 45 minutes. Highly recommended!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SM</div>
+            <div class="author-info">
+              <h4>Sunita Maurya</h4>
+              <p>Verified Customer</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-quote">"Very professional service. The staff always explains the exact dosage timing and checks for any allergies. Authentic products and reasonable discounts."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">RD</div>
+            <div class="author-info">
+              <h4>Dr. Rohit Dubey</h4>
+              <p>Consulting Physician</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <img src="images/logo.png" alt="Logo">
+            <div class="brand-text">
+              <span class="brand-name">Utkarsh Medical Hall</span>
+              <span class="brand-tagline" style="color:#5eead4;">Pharmacy & Healthcare</span>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Your neighborhood certified retail & wholesale pharmacy offering genuine medications, medical supplies, and holistic healthcare support.
+          </p>
+          <div class="footer-license-badge">
+            <strong><i class="fa-solid fa-certificate"></i> Drug License: 20B/21B-UK-2024-8842</strong>
+            <span>Registered Under State Pharmacy Council & CDSCO</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+            <li><a href="products.html"><i class="fa-solid fa-angle-right"></i> Browse Medicines</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-angle-right"></i> About Our Pharmacy</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-angle-right"></i> Contact & Directions</a></li>
+            <li><a href="admin-login.html"><i class="fa-solid fa-angle-right"></i> Pharmacist Login</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Product Categories -->
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul class="footer-links">
+            <li><a href="products.html?category=otc"><i class="fa-solid fa-angle-right"></i> OTC & Pain Relief</a></li>
+            <li><a href="products.html?category=prescription"><i class="fa-solid fa-angle-right"></i> Chronic Care & Rx</a></li>
+            <li><a href="products.html?category=ayurveda"><i class="fa-solid fa-angle-right"></i> Ayurvedic Remedies</a></li>
+            <li><a href="products.html?category=vitamins"><i class="fa-solid fa-angle-right"></i> Immunity & Vitamins</a></li>
+            <li><a href="products.html?category=devices"><i class="fa-solid fa-angle-right"></i> BP & Sugar Monitors</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contact info -->
+        <div class="footer-col">
+          <h4>Visit Our Pharmacy</h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Main Market Road, Near Civil Hospital, Civil Lines</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 98765 43210 (24x7 Helpline)</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>care@utkarshmedical.com</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>Open 7 Days: 7:00 AM - 11:00 PM</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Utkarsh Medical Hall. All rights reserved. Self-dispensed by Registered Pharmacist.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/919876543210" class="social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Action -->
+  <a href="https://wa.me/919876543210?text=Hello%20Utkarsh%20Medical%20Hall,%20I%20have%20an%20inquiry%20regarding%20medicine%20availability." class="floating-whatsapp" target="_blank" title="Chat with Pharmacist on WhatsApp" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Cart Slide-In Drawer -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay" onclick="UtkarshCart.closeDrawer()"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h3><i class="fa-solid fa-basket-shopping" style="color:var(--primary);"></i> Your Medicine Cart</h3>
+      <button class="cart-close-btn" onclick="UtkarshCart.closeDrawer()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div class="cart-items-body" id="cart-drawer-items">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <div class="cart-footer">
+      <div id="cart-rx-notice" style="display:none;background:#fef2f2;border:1px solid #fecaca;padding:0.6rem;border-radius:8px;font-size:0.8rem;color:#b91c1c;">
+        <i class="fa-solid fa-triangle-exclamation"></i> Contains prescription items. Please keep your doctor Rx handy.
+      </div>
+      <div class="cart-subtotal">
+        <span>Subtotal:</span>
+        <span id="cart-subtotal-val">₹0</span>
+      </div>
+      <button id="btn-cart-checkout" class="btn btn-whatsapp" onclick="UtkarshCart.checkoutWhatsApp()" style="width:100%;">
+        <i class="fa-brands fa-whatsapp"></i> Order Directly on WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- Prescription Upload Modal -->
+  <div class="modal-overlay" id="prescription-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div>
+          <h3 style="font-size:1.25rem;color:var(--text-main);"><i class="fa-solid fa-file-medical" style="color:var(--primary);"></i> Upload Doctor Prescription</h3>
+          <span style="font-size:0.8rem;color:var(--text-muted);">We will review and prepare your medicines promptly.</span>
+        </div>
+        <button onclick="PrescriptionModal.close()" style="font-size:1.35rem;color:#94a3b8;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="modal-body">
+        <form onsubmit="PrescriptionModal.submitPrescription(event)">
+          <div class="upload-dropzone" onclick="document.getElementById('rx-file-input').click()">
+            <input type="file" id="rx-file-input" accept="image/*,.pdf" style="display:none;" onchange="PrescriptionModal.handleFileSelect(this)">
+            <div id="rx-dropzone-label">
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+              <h4 style="font-size:1rem;margin-bottom:0.25rem;">Click to upload or take a photo</h4>
+              <p style="font-size:0.8rem;color:var(--text-muted);">Supports JPG, PNG, PDF (Max 10MB)</p>
+            </div>
+            <div id="rx-preview-box"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Patient Name *</label>
+            <input type="text" id="rx-patient-name" class="form-control" placeholder="e.g. Ramesh Kumar" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Phone / WhatsApp Number *</label>
+            <input type="tel" id="rx-patient-phone" class="form-control" placeholder="e.g. 9876543210" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Delivery Address / City</label>
+            <input type="text" id="rx-patient-address" class="form-control" placeholder="e.g. House 42, Civil Lines">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Special Notes / Dosage Period</label>
+            <textarea id="rx-patient-notes" class="form-control" rows="2" placeholder="e.g. Need 15 days course only"></textarea>
+          </div>
+
+          <div style="display:flex;gap:0.75rem;margin-top:1.5rem;">
+            <button type="button" class="btn btn-secondary" style="flex:1;" onclick="PrescriptionModal.close()">Cancel</button>
+            <button type="submit" class="btn btn-primary" style="flex:2;">
+              <i class="fa-solid fa-paper-plane"></i> Submit & Order via WhatsApp
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/firebase-config.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    // Initial Render of Homepage Featured Grid
+    document.addEventListener('DOMContentLoaded', async () => {
+      await ProductEngine.init();
+      const grid = document.getElementById('featured-products-grid');
+      if (grid) {
+        const topProducts = ProductEngine.getAll().slice(0, 8);
+        grid.innerHTML = topProducts.map(p => ProductEngine.renderCardHTML(p)).join('');
+      }
+    });
+  </script>
+</body>
+</html>
